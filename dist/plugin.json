@@ -1,0 +1,33 @@
+{
+  "type": "panel",
+  "name": "Health Check",
+  "id": "grafana-health-check-panel",
+
+  "info": {
+    "description": "Health Check panel for grafana",
+    "author": {
+      "name": "Sergey Anisimov",
+      "url": "http://sanisimov.com"
+    },
+    "keywords": ["health", "check", "panel"],
+    "logos": {
+      "small": "src/img/health_check_panel_logo.svg",
+      "large": "src/img/health_check_panel_logo.svg"
+    },
+    "links": [
+      {"name": "Project site", "url": "https://github.com/sanisimov/health-check-panel"},
+      {"name": "MIT License", "url": "https://github.com/sanisimov/health-check-panel/blob/master/LICENSE"}
+    ],
+    "screenshots": [
+      {"name": "Showcase", "path": "src/img/screenshot-showcase.png"},
+      {"name": "Options", "path": "src/img/screenshot-health-check-options.png"}
+    ],
+    "version": "0.0.8",
+    "updated": "2016-11-11"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}

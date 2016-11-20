@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/module.js"],"names":["HealthCheckCtrl"],"mappings":";;;;;;;;AAAQA,qB,sBAAAA,e;;;2BAGNA,e","file":"module.js","sourcesContent":["import {HealthCheckCtrl} from './health_check_ctrl';\n\nexport {\n  HealthCheckCtrl as PanelCtrl\n};\n"]}
