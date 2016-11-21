@@ -8,6 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node -e \"require('grunt').tasks(['default']);\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anisimovsergey/health-check-panel.git"
+  },
   "keywords": [
     "health",
     "check",
