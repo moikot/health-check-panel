@@ -140,11 +140,7 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
 
             this.events.on('render', function () {
               var $panelContainer = elem.find('.panel-container');
-              if (_this2.panel.state.bgColor) {
-                $panelContainer.css('background-color', _this2.panel.state.bgColor);
-              } else {
-                $panelContainer.css('background-color', '');
-              }
+              $panelContainer.css('background-color', _this2.panel.state.bgColor);
             });
           }
         }]);
