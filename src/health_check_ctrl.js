@@ -1,28 +1,18 @@
 import {PanelCtrl} from 'app/plugins/sdk';
-import moment from 'moment';
 import _ from 'lodash';
 import './css/health-check-panel.css!';
 
 const panelDefaults = {
-  mode: 'time',
-  healthCheckType: '24 hour',
-  offsetFromUtc: null,
-  offsetFromUtcMinutes: null,
-  bgColor: null,
-  countdownSettings: {
-    endCountdownTime: moment().seconds(0).milliseconds(0).add(1, 'day').toDate(),
-    endText: '00:00:00'
-  },
-  dateSettings: {
-    showDate: false,
-    dateFormat: 'YYYY-MM-DD',
-    fontSize: '20px',
-    fontWeight: 'normal'
-  },
-  timeSettings: {
-    customFormat: 'HH:mm:ss',
+  checkInterval: 2000,
+  healthy: {
+    text: 'Healthy',
+    bgColor: '#2F8A00',
     fontSize: '60px',
-    fontWeight: 'normal'
+  },
+  unhealthy: {
+    text: 'Unhealthy',
+    bgColor: '#800000',
+    fontSize: '60px',
   }
 };
 
@@ -30,11 +20,6 @@ export class HealthCheckCtrl extends PanelCtrl {
   constructor($scope, $injector) {
     super($scope, $injector);
     _.defaults(this.panel, panelDefaults);
-    _.defaults(this.panel.timeSettings, panelDefaults.timeSettings);
-
-    if (!(this.panel.countdownSettings.endCountdownTime instanceof Date)) {
-      this.panel.countdownSettings.endCountdownTime = moment(this.panel.countdownSettings.endCountdownTime).toDate();
-    }
 
     this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
     this.events.on('panel-teardown', this.onPanelTeardown.bind(this));
@@ -52,93 +37,39 @@ export class HealthCheckCtrl extends PanelCtrl {
   }
 
   updateHealthCheck() {
-    if (this.panel.mode === 'time') {
-      this.renderTime();
-    } else {
-      this.renderCountdown();
-    }
-
-    this.nextTickPromise = this.$timeout(this.updateHealthCheck.bind(this), 1000);
+    this.doHealthCheck();
+    this.nextTickPromise = this.$timeout(this.updateHealthCheck.bind(this), this.panel.checkInterval);
   }
 
-  renderTime() {
-    let now;
+  doHealthCheck() {
+    var that = this
 
-    if (this.panel.offsetFromUtc && this.panel.offsetFromUtcMinutes) {
-      const offsetInMinutes = (parseInt(this.panel.offsetFromUtc, 10) * 60) + parseInt(this.panel.offsetFromUtcMinutes, 10);
-      now = moment().utcOffset(offsetInMinutes);
-    } else if (this.panel.offsetFromUtc && !this.panel.offsetFromUtcMinutes) {
-      now = moment().utcOffset(parseInt(this.panel.offsetFromUtc, 10));
-    } else {
-      now = moment();
-    }
+    var request = new XMLHttpRequest();
+    request.open('HEAD', '/', true);
 
-    if (this.panel.dateSettings.showDate) {
-      this.date = now.format(this.panel.dateSettings.dateFormat);
-    }
+    request.onload = function() {
+      if (request.status === 200) {
+        that.panel.state = that.panel.healthy;
+        that.render();
+      } else {
+        that.panel.state = that.panel.unhealthy;
+        that.render();
+      }
+    };
 
-    this.time = now.format(this.getTimeFormat());
-  }
+    request.onerror = function() {
+      that.panel.state = that.panel.unhealthy;
+      that.render();
+    };
 
-  getTimeFormat() {
-    if (this.panel.healthCheckType === '24 hour') {
-      return 'HH:mm:ss';
-    }
-
-    if (this.panel.healthCheckType === '12 hour') {
-      return 'h:mm:ss A';
-    }
-
-    return this.panel.timeSettings.customFormat;
-  }
-
-  renderCountdown() {
-    if (!this.panel.countdownSettings.endCountdownTime) {
-      this.time = this.panel.countdownSettings.endText;
-    }
-
-    const now = moment();
-    const timeLeft = moment.duration(moment(this.panel.countdownSettings.endCountdownTime).diff(now));
-    let formattedTimeLeft = '';
-
-    if (timeLeft.asSeconds() <= 0) {
-      this.time = this.panel.countdownSettings.endText;
-      return;
-    }
-
-    var previous = '';
-
-    if (timeLeft.years() > 0) {
-      formattedTimeLeft = timeLeft.years() === 1 ? '1 year, ' : timeLeft.years() + ' years, ';
-      previous = 'years';
-    }
-    if (timeLeft.months() > 0 || previous === 'years') {
-      formattedTimeLeft += timeLeft.months() === 1 ? '1 month, ' : timeLeft.months() + ' months, ';
-      previous = 'month';
-    }
-    if (timeLeft.days() > 0 || previous === 'months') {
-      formattedTimeLeft += timeLeft.days() === 1 ? '1 day, ' : timeLeft.days() + ' days, ';
-      previous = 'days';
-    }
-    if (timeLeft.hours() > 0 || previous === 'days') {
-      formattedTimeLeft += timeLeft.hours() === 1 ? '1 hour, ' : timeLeft.hours() + ' hours, ';
-      previous = 'hours';
-    }
-
-    if (timeLeft.minutes() > 0 || previous === 'hours') {
-      formattedTimeLeft += timeLeft.minutes() === 1 ? '1 minute, ' : timeLeft.minutes() + ' minutes, ';
-    }
-
-    formattedTimeLeft += timeLeft.seconds() === 1 ? '1 second ' : timeLeft.seconds() + ' seconds';
-    this.time = formattedTimeLeft;
+    request.send();
   }
 
   link(scope, elem) {
     this.events.on('render', () => {
       const $panelContainer = elem.find('.panel-container');
-
-      if (this.panel.bgColor) {
-        $panelContainer.css('background-color', this.panel.bgColor);
+      if (this.panel.state.bgColor) {
+        $panelContainer.css('background-color', this.panel.state.bgColor);
       } else {
         $panelContainer.css('background-color', '');
       }

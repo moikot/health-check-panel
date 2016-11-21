@@ -1,77 +1,45 @@
 <div class="editor-row">
 	<div class="section gf-form-group">
 		<h5 class="section-heading">Health Check</h5>
-		<div class="gf-form">
-			<label class="gf-form-label width-12">Host</label>
-			<input type="text" class="input-small gf-form-input max-width-9" ng-model="ctrl.panel.host" ng-change="ctrl.render()" ng-model-onblur />
-		</div>
-    		<div class="gf-form">
-			<label class="gf-form-label width-12">Port</label>
-			<input type="text" class="input-small gf-form-input max-width-9" ng-model="ctrl.panel.port" ng-change="ctrl.render()" ng-model-onblur />
-		</div>
     		<div class="gf-form">
 			<label class="gf-form-label width-12">Check interval</label>
 			<input type="text" class="input-small gf-form-input max-width-9" ng-model="ctrl.panel.checkInterval" ng-change="ctrl.render()" ng-model-onblur />
-		</div>
-    		<div class="gf-form">
-			<label class="gf-form-label width-12">Check timeout</label>
-			<input type="text" class="input-small gf-form-input max-width-9" ng-model="ctrl.panel.checkTimeout" ng-change="ctrl.render()" ng-model-onblur />
 		</div>
 	</div>
 
 	<div class="section gf-form-group">
 		<h5 class="section-heading">Healthy display</h5>
-    		<div class="gf-form">
-			<label class="gf-form-label width-12">Threshold</label>
-			<input type="text" class="input-small gf-form-input max-width-10" ng-model="ctrl.panel.healthyThreshold" ng-change="ctrl.render()" ng-model-onblur />
-		</div>
 		<div class="gf-form">
 			<label class="gf-form-label width-12">Text</label>
-			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.healthyText" ng-change="ctrl.render()" ng-model-onblur />
+			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.healthy.text" ng-change="ctrl.render()" ng-model-onblur />
 		</div>
 		<div class="gf-form">
 			<label class="gf-form-label width-12">Bgacground Color</label>
 			<span class="max-width-10">
-				<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.healthyBgColor" ng-change="ctrl.render()" ></spectrum-picker>
-			</span>
-		</div>
-		<div class="gf-form">
-			<label class="gf-form-label width-12">Text Color</label>
-			<span class="max-width-10">
-				<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.healthyTextColor" ng-change="ctrl.render()" ></spectrum-picker>
+				<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.healthy.bgColor" ng-change="ctrl.render()" ></spectrum-picker>
 			</span>
 		</div>
 		<div class="gf-form">
 			<label class="gf-form-label width-12">Font Size</label>
-			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.healthyFontSize" ng-change="ctrl.render()" ng-model-onblur />
+			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.healthy.fontSize" ng-change="ctrl.render()" ng-model-onblur />
 		</div>
 	</div>
 
 	<div class="section gf-form-group">
 		<h5 class="section-heading">Unealthy display</h5>
-    		<div class="gf-form">
-			<label class="gf-form-label width-12">Threshold</label>
-			<input type="text" class="input-small gf-form-input max-width-10" ng-model="ctrl.panel.unhealthyThreshold" ng-change="ctrl.render()" ng-model-onblur />
-		</div>
 		<div class="gf-form">
 			<label class="gf-form-label width-12">Text</label>
-			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.unhealthyText" ng-change="ctrl.render()" ng-model-onblur />
+			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.unhealthy.text" ng-change="ctrl.render()" ng-model-onblur />
 		</div>
 		<div class="gf-form">
 			<label class="gf-form-label width-12">Bgacground Color</label>
 			<span class="max-width-10">
-				<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.unhealthyBgColor" ng-change="ctrl.render()" ></spectrum-picker>
-			</span>
-		</div>
-		<div class="gf-form">
-			<label class="gf-form-label width-12">Text Color</label>
-			<span class="max-width-10">
-				<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.unhealthyTextColor" ng-change="ctrl.render()" ></spectrum-picker>
+				<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.unhealthy.bgColor" ng-change="ctrl.render()" ></spectrum-picker>
 			</span>
 		</div>
 		<div class="gf-form">
 			<label class="gf-form-label width-12">Font Size</label>
-			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.unhealthyFontSize" ng-change="ctrl.render()" ng-model-onblur />
+			<input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.unhealthy.fontSize" ng-change="ctrl.render()" ng-model-onblur />
 		</div>
 	</div>
 </div>

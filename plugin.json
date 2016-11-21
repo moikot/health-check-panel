@@ -15,8 +15,8 @@
       "large": "src/img/health_check_panel_logo.svg"
     },
     "links": [
-      {"name": "Project site", "url": "https://github.com/sanisimov/health-check-panel"},
-      {"name": "MIT License", "url": "https://github.com/sanisimov/health-check-panel/blob/master/LICENSE"}
+      {"name": "Project site", "url": "https://github.com/anisimovsergey/health-check-panel"},
+      {"name": "MIT License", "url": "https://github.com/anisimovsergey/health-check-panel/blob/master/LICENSE"}
     ],
     "screenshots": [
       {"name": "Showcase", "path": "src/img/screenshot-showcase.png"},
