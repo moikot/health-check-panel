@@ -68,11 +68,7 @@ export class HealthCheckCtrl extends PanelCtrl {
   link(scope, elem) {
     this.events.on('render', () => {
       const $panelContainer = elem.find('.panel-container');
-      if (this.panel.state.bgColor) {
-        $panelContainer.css('background-color', this.panel.state.bgColor);
-      } else {
-        $panelContainer.css('background-color', '');
-      }
+      $panelContainer.css('background-color', this.panel.state.bgColor);
     });
   }
 }
