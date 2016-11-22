@@ -74,7 +74,7 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
         }
       };
 
-      _export('HealthCheckCtrl', HealthCheckCtrl = function (_PanelCtrl) {
+      HealthCheckCtrl = function (_PanelCtrl) {
         _inherits(HealthCheckCtrl, _PanelCtrl);
 
         function HealthCheckCtrl($scope, $injector) {
@@ -116,7 +116,7 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
             var request = new XMLHttpRequest();
             request.open('HEAD', '/', true);
 
-            request.onload = function () {
+            request.onload = function onload() {
               if (request.status === 200) {
                 that.panel.state = that.panel.healthy;
                 that.render();
@@ -126,7 +126,7 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
               }
             };
 
-            request.onerror = function () {
+            request.onerror = function onerror() {
               that.panel.state = that.panel.unhealthy;
               that.render();
             };
@@ -146,11 +146,11 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
         }]);
 
         return HealthCheckCtrl;
-      }(PanelCtrl));
-
-      _export('HealthCheckCtrl', HealthCheckCtrl);
+      }(PanelCtrl);
 
       HealthCheckCtrl.templateUrl = 'module.html';
+
+      _export('default', HealthCheckCtrl);
     }
   };
 });

@@ -16,7 +16,7 @@ const panelDefaults = {
   }
 };
 
-export class HealthCheckCtrl extends PanelCtrl {
+class HealthCheckCtrl extends PanelCtrl {
   constructor($scope, $injector) {
     super($scope, $injector);
     _.defaults(this.panel, panelDefaults);
@@ -42,12 +42,12 @@ export class HealthCheckCtrl extends PanelCtrl {
   }
 
   doHealthCheck() {
-    var that = this
+    const that = this;
 
-    var request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
     request.open('HEAD', '/', true);
 
-    request.onload = function() {
+    request.onload = function onload() {
       if (request.status === 200) {
         that.panel.state = that.panel.healthy;
         that.render();
@@ -57,7 +57,7 @@ export class HealthCheckCtrl extends PanelCtrl {
       }
     };
 
-    request.onerror = function() {
+    request.onerror = function onerror() {
       that.panel.state = that.panel.unhealthy;
       that.render();
     };
@@ -74,3 +74,4 @@ export class HealthCheckCtrl extends PanelCtrl {
 }
 
 HealthCheckCtrl.templateUrl = 'module.html';
+export default HealthCheckCtrl;
