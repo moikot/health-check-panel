@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- node
+sudo: false
+cache:
+  directories:
+  - node_modules
+install:
+- npm install
+before_script:
+- npm run lint
+before_deploy:
+- npm run build
