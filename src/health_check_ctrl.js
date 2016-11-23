@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {PanelCtrl} from 'app/plugins/sdk'; // eslint-disable-line import/extensions, import/no-extraneous-dependencies
+import { PanelCtrl } from 'app/plugins/sdk'; // eslint-disable-line import/extensions, import/no-extraneous-dependencies
 import './css/health-check-panel.css!'; // eslint-disable-line import/no-webpack-loader-syntax
 
 const panelDefaults = {
@@ -13,7 +13,7 @@ const panelDefaults = {
     text: 'Unhealthy',
     bgColor: '#800000',
     fontSize: '60px',
-  }
+  },
 };
 
 export default class HealthCheckCtrl extends PanelCtrl {
@@ -38,7 +38,9 @@ export default class HealthCheckCtrl extends PanelCtrl {
 
   updateHealthCheck() {
     this.doHealthCheck();
-    this.nextTickPromise = this.$timeout(this.updateHealthCheck.bind(this), this.panel.checkInterval);
+    this.nextTickPromise = this.$timeout(
+      this.updateHealthCheck.bind(this),
+      this.panel.checkInterval);
   }
 
   doHealthCheck() {

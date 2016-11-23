@@ -13,7 +13,7 @@ module.exports = (grunt) => {
         cwd: 'src',
         expand: true,
         src: ['**/*', '!**/*.js', '!**/*.scss', '!img/**/*'],
-        dest: 'dist'
+        dest: 'dist',
       },
       pluginDef: {
         expand: true,
@@ -24,7 +24,7 @@ module.exports = (grunt) => {
         cwd: 'src',
         expand: true,
         src: ['img/**/*'],
-        dest: 'dist/src/'
+        dest: 'dist/src/',
       },
     },
 
@@ -32,7 +32,7 @@ module.exports = (grunt) => {
       rebuild_all: {
         files: ['src/**/*', 'plugin.json'],
         tasks: ['default'],
-        options: {spawn: false}
+        options: { spawn: false },
       },
     },
 
@@ -48,8 +48,8 @@ module.exports = (grunt) => {
           expand: true,
           src: ['*.js'],
           dest: 'dist',
-          ext: '.js'
-        }]
+          ext: '.js',
+        }],
       },
     },
 
