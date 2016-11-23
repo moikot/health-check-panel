@@ -22,7 +22,7 @@
       {"name": "Showcase", "path": "src/img/screenshot-showcase.png"},
       {"name": "Options", "path": "src/img/screenshot-health-check-options.png"}
     ],
-    "version": "0.0.8",
+    "version": "0.0.10",
     "updated": "2016-11-11"
   },
 
