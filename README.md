@@ -17,6 +17,11 @@ Install the dependencies:
 npm install
 ```
 
+Run eslint:
+```bash
+npm run lint
+```
+
 Run the build script:
 ```bash
 npm run build
