@@ -1,4 +1,5 @@
 ## Health Check Panel Plugin for Grafana
+[![Build Status](https://travis-ci.org/anisimovsergey/health-check-panel.svg?branch=master)](https://travis-ci.org/anisimovsergey/health-check-panel)
 
 The Health Check
 
