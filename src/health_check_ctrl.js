@@ -1,6 +1,6 @@
-import {PanelCtrl} from 'app/plugins/sdk';
 import _ from 'lodash';
-import './css/health-check-panel.css!';
+import {PanelCtrl} from 'app/plugins/sdk'; // eslint-disable-line import/extensions, import/no-extraneous-dependencies
+import './css/health-check-panel.css!'; // eslint-disable-line import/no-webpack-loader-syntax
 
 const panelDefaults = {
   checkInterval: 2000,
@@ -16,7 +16,7 @@ const panelDefaults = {
   }
 };
 
-class HealthCheckCtrl extends PanelCtrl {
+export default class HealthCheckCtrl extends PanelCtrl {
   constructor($scope, $injector) {
     super($scope, $injector);
     _.defaults(this.panel, panelDefaults);
@@ -74,4 +74,3 @@ class HealthCheckCtrl extends PanelCtrl {
 }
 
 HealthCheckCtrl.templateUrl = 'module.html';
-export default HealthCheckCtrl;

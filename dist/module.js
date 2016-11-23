@@ -6,7 +6,7 @@ System.register(['./health_check_ctrl'], function (_export, _context) {
   var HealthCheckCtrl;
   return {
     setters: [function (_health_check_ctrl) {
-      HealthCheckCtrl = _health_check_ctrl.HealthCheckCtrl;
+      HealthCheckCtrl = _health_check_ctrl.default;
     }],
     execute: function () {
       _export('PanelCtrl', HealthCheckCtrl);

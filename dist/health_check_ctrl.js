@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], function (_export, _context) {
+System.register(['lodash', 'app/plugins/sdk', './css/health-check-panel.css!'], function (_export, _context) {
   "use strict";
 
-  var PanelCtrl, _, _createClass, panelDefaults, HealthCheckCtrl;
+  var _, PanelCtrl, _createClass, panelDefaults, HealthCheckCtrl;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -36,10 +36,10 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
   }
 
   return {
-    setters: [function (_appPluginsSdk) {
-      PanelCtrl = _appPluginsSdk.PanelCtrl;
-    }, function (_lodash) {
+    setters: [function (_lodash) {
       _ = _lodash.default;
+    }, function (_appPluginsSdk) {
+      PanelCtrl = _appPluginsSdk.PanelCtrl;
     }, function (_cssHealthCheckPanelCss) {}],
     execute: function () {
       _createClass = function () {
@@ -148,9 +148,9 @@ System.register(['app/plugins/sdk', 'lodash', './css/health-check-panel.css!'], 
         return HealthCheckCtrl;
       }(PanelCtrl);
 
-      HealthCheckCtrl.templateUrl = 'module.html';
-
       _export('default', HealthCheckCtrl);
+
+      HealthCheckCtrl.templateUrl = 'module.html';
     }
   };
 });

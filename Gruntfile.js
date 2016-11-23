@@ -1,5 +1,5 @@
 module.exports = (grunt) => {
-  require('load-grunt-tasks')(grunt); // eslint-disable-line import/no-extraneous-dependencies
+  require('load-grunt-tasks')(grunt); // eslint-disable-line import/no-extraneous-dependencies, global-require
 
   grunt.loadNpmTasks('grunt-execute');
   grunt.loadNpmTasks('grunt-contrib-clean');
