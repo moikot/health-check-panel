@@ -13,7 +13,7 @@ It looks very simple, it's just a panel with a text on it. When the backend is r
 
 ### How does it work?
 
-It works very simply, the plugin implements a simple health monitoring of the [Grafana](https://grafana.net/) backend by making regular HEAD requests to its root. The user can change the interval of the requests as well as the background color and text of the `healthy` and `unhealthy` states.
+It works very simply, the plugin implements a health monitoring of the [Grafana](https://grafana.net/) backend by making regular HEAD requests to its root. The user can change the interval of the requests as well as the background color and text of the `healthy` and `unhealthy` states.
 
 ![options](https://raw.githubusercontent.com/anisimovsergey/health-check-panel/master/src/img/screenshot-health-check-options.png)
 
