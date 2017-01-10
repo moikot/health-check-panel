@@ -7,7 +7,7 @@
 
 ### How does it look?
 
-It looks very simple, it's just a panel with a text on it. When the backend is reachable, the panel is green and healthy. When the backend is not reachable, the panel becomes red and brings your attention.
+It looks very simple, it's just a panel with a text on it. When the backend is reachable, the panel is green and healthy. When the backend is not reachable, the panel becomes red and attracts your attention.
 
 ![showcase](https://raw.githubusercontent.com/anisimovsergey/health-check-panel/master/src/img/screenshot-showcase.png)
 
