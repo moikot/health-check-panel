@@ -3,11 +3,11 @@
 
 ### Why?
 
-[Grafana](https://grafana.net/) is very nice and cool and allows you to monitor your infrastructure displaying the state of various metrics. The problem is that when the backend of Grafana becomes unreachable due to either network problems or something else, it's quite difficult to notice that the page is disconnected and doesn't reflect the latest state of your system.
+[Grafana](https://grafana.net/) is very nice and cool and allows you to monitor your infrastructure displaying various metrics. The problem is that when the backend of Grafana becomes unreachable due to either network problems or something else, it's quite difficult to notice that the page is disconnected and doesn't reflect the latest state of your system.
 
 ### How does it look?
 
-It looks very simple, it's just a panel with a text on it. When the backend is reachable, the panel is green and healthy. When the backend is not reachable, the panel becomes red and attracts your attention.
+It looks very simple, it's just a panel with a text on it. When the backend is reachable, the panel is green and healthy. When the backend is not reachable, the panel becomes red and should attract your attention.
 
 ![showcase](https://raw.githubusercontent.com/anisimovsergey/health-check-panel/master/src/img/screenshot-showcase.png)
 
